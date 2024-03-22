@@ -24,7 +24,7 @@ $nama = $_POST['nama'];
 $kelamin = $_POST['kelamin'];
 $prodi = $_POST['prodi'];
 $email = $_POST['email'];
-
+$skill = $_POST['skills'];
 // print_r($skill_pilihan);
 
 // menghitung skor skill
@@ -36,9 +36,9 @@ $total_poin = 0;
 // Memeriksa apakah data dikirim melalui metode POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Memeriksa apakah skill dipilih
-    if(isset($_POST['skills']) && is_array($_POST['skills'])) {
+    if(isset($skill) && is_array($skill)) {
         // Menambahkan nilai skill yang dipilih ke total poin
-        foreach ($_POST['skills'] as $selected_skill) {
+        foreach ($skill as $selected_skill) {
             if(isset($ar_skill[$selected_skill])) {
                 $total_poin += $ar_skill[$selected_skill];
             }
